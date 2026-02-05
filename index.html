@@ -65,7 +65,7 @@
             color: rgba(255, 255, 255, 0.9);
         }
         
-        /* First three columns - frozen and compact */
+        /* First column - frozen */
         th:nth-child(1),
         td:nth-child(1) {
             position: sticky;
@@ -74,25 +74,26 @@
             backdrop-filter: blur(10px);
             z-index: 5;
             text-align: left;
-            width: 5vw;
-            min-width: 5vw;
-            max-width: 5vw;
+            width: 40px;
+            min-width: 40px;
+            max-width: 40px;
             font-size: 11px;
             padding: 8px 6px;
             border-right: 1px solid rgba(132, 250, 176, 0.2);
         }
         
+        /* Second column - frozen */
         th:nth-child(2),
         td:nth-child(2) {
             position: sticky;
-            left: 5vw;
+            left: 40px;
             background: rgba(132, 250, 176, 0.08);
             backdrop-filter: blur(10px);
             z-index: 5;
             text-align: left;
-            width: 16vw;
-            min-width: 16vw;
-            max-width: 16vw;
+            width: 150px;
+            min-width: 150px;
+            max-width: 150px;
             font-size: 11px;
             padding: 8px 6px;
             white-space: normal;
@@ -101,17 +102,18 @@
             border-right: 1px solid rgba(132, 250, 176, 0.2);
         }
         
+        /* Third column - frozen */
         th:nth-child(3),
         td:nth-child(3) {
             position: sticky;
-            left: 21vw;
+            left: 190px;
             background: rgba(132, 250, 176, 0.08);
             backdrop-filter: blur(10px);
             z-index: 5;
             text-align: right;
-            width: 17vw;
-            min-width: 17vw;
-            max-width: 17vw;
+            width: 120px;
+            min-width: 120px;
+            max-width: 120px;
             font-size: 11px;
             font-weight: bold;
             padding: 8px 6px;
@@ -142,24 +144,45 @@
             color: #84fab0;
         }
         
-        /* Row 1 - Week numbers */
+        /* Row 1 - Empty */
         thead tr:nth-child(1) th {
             top: 0;
             font-size: 10px;
             padding: 6px 4px;
         }
         
-        /* Row 2 - Months (merged cells) */
+        /* Row 2 - Empty */
         thead tr:nth-child(2) th {
             top: 30px;
+            font-size: 10px;
+            padding: 6px 4px;
+        }
+        
+        /* Row 3 - Empty */
+        thead tr:nth-child(3) th {
+            top: 56px;
+            font-size: 10px;
+            padding: 6px 4px;
+        }
+        
+        /* Row 4 - Week numbers */
+        thead tr:nth-child(4) th {
+            top: 82px;
+            font-size: 10px;
+            padding: 6px 4px;
+        }
+        
+        /* Row 5 - Months (merged cells) */
+        thead tr:nth-child(5) th {
+            top: 108px;
             font-size: 11px;
             font-weight: 700;
             padding: 6px 4px;
         }
         
-        /* Row 3 - Dates with wrapping */
-        thead tr:nth-child(3) th {
-            top: 56px;
+        /* Row 6 - Dates with wrapping - SOLID COLOR */
+        thead tr:nth-child(6) th {
+            top: 134px;
             white-space: normal;
             word-wrap: break-word;
             font-size: 10px;
@@ -173,9 +196,9 @@
         }
         
         /* Date row - first three columns also get the solid color */
-        thead tr:nth-child(3) th:nth-child(1),
-        thead tr:nth-child(3) th:nth-child(2),
-        thead tr:nth-child(3) th:nth-child(3) {
+        thead tr:nth-child(6) th:nth-child(1),
+        thead tr:nth-child(6) th:nth-child(2),
+        thead tr:nth-child(6) th:nth-child(3) {
             background: #84fab0 !important;
             color: #0f0c29 !important;
         }
@@ -207,9 +230,9 @@
             color: #8fd3f4;
         }
         
-        /* TOTAL row styling */
+        /* TOTAL row styling - SOLID COLOR */
         tbody tr.total-row td {
-            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
+            background: #84fab0 !important;
             color: #0f0c29 !important;
             font-weight: bold;
             font-size: 12px;
@@ -218,57 +241,16 @@
         /* Compact data columns */
         th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)),
         td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
-            min-width: 50px;
-            max-width: 65px;
-            font-size: 11px;
-            padding: 8px 6px;
-        }
-        
-        /* Loading spinner */
-        .spinner {
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top: 3px solid #84fab0;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Scrollbar styling for dark theme */
-        .table-container::-webkit-scrollbar {
-            width: 10px;
-            height: 10px;
-        }
-        
-        .table-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 5px;
-        }
-        
-        .table-container::-webkit-scrollbar-thumb {
-            background: rgba(132, 250, 176, 0.3);
-            border-radius: 5px;
-        }
-        
-        .table-container::-webkit-scrollbar-thumb:hover {
-            background: rgba(132, 250, 176, 0.5);
+            min-width: 70px;
+            max-width: 85px;
         }
     </style>
 </head>
 <body>
-    <div id="loading">
-        <div class="spinner"></div>
-        <p>Loading data...</p>
-    </div>
+    <div id="loading">Loading data...</div>
     <div id="error"></div>
-    <div id="tableContainer" class="table-container" style="display: none;"></div>
-
+    <div class="table-container" id="tableContainer" style="display: none;"></div>
+    
     <script>
         const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQfQdBVl01cxsIoGnfJLltGDuOkIVDFqj-rNg3KwFVZ8-GGbUqk1DSs_CVaygisjaLhg30g1gjzIsdC/pub?gid=2079453016&single=true&output=csv';
         
@@ -317,45 +299,47 @@
         
         function isNumeric(value) {
             if (!value || value.trim() === '') return false;
-            const num = value.replace(/,/g, '');
-            return !isNaN(num) && !isNaN(parseFloat(num));
+            const cleaned = value.replace(/,/g, '').trim();
+            return !isNaN(cleaned) && !isNaN(parseFloat(cleaned));
         }
         
         function formatNumber(value) {
-            const num = parseFloat(value.replace(/,/g, ''));
+            const num = parseFloat(value.replace(/,/g, '').trim());
             if (isNaN(num)) return value;
             return Math.round(num).toLocaleString('en-US');
         }
         
         function createTable(data) {
-            if (!data || data.length < 5) {
+            if (!data || data.length < 7) {
                 throw new Error('Not enough data found');
             }
             
-            // Skip first 4 rows
-            // Row 5 (index 4) = Week numbers
-            // Row 6 (index 5) = Months
-            // Row 7 (index 6) = Dates
-            const weekRow = data[4];
-            const monthRow = data[5];
-            const dateRow = data[6];
-            const dataRows = data.slice(7).filter(row => row.some(cell => cell && cell.trim()));
+            // Row 1-3 (index 0-2) = Info rows
+            // Row 4 (index 3) = Week numbers
+            // Row 5 (index 4) = Months
+            // Row 6 (index 5) = Column headers (blank, Alias, TOTAL AMOUNT, dates...)
+            const weekRow = data[3];
+            const monthRow = data[4];
+            const headerRow = data[5];
+            const dataRows = data.slice(6).filter(row => row.some(cell => cell && cell.trim()));
             
             const table = document.createElement('table');
             const thead = document.createElement('thead');
             const tbody = document.createElement('tbody');
             
+            // Create first 3 info rows (empty for now)
+            for (let r = 0; r < 3; r++) {
+                const tr = document.createElement('tr');
+                for (let c = 0; c < 3; c++) {
+                    const th = document.createElement('th');
+                    tr.appendChild(th);
+                }
+                thead.appendChild(tr);
+            }
+            
             // Create week number row
             const weekTr = document.createElement('tr');
-            // Add blank cells for first three columns
-            const blankWeek1 = document.createElement('th');
-            const blankWeek2 = document.createElement('th');
-            const blankWeek3 = document.createElement('th');
-            weekTr.appendChild(blankWeek1);
-            weekTr.appendChild(blankWeek2);
-            weekTr.appendChild(blankWeek3);
-            
-            for (let i = 3; i < weekRow.length; i++) {
+            for (let i = 0; i < Math.max(weekRow.length, headerRow.length); i++) {
                 const th = document.createElement('th');
                 th.textContent = weekRow[i] || '';
                 weekTr.appendChild(th);
@@ -364,17 +348,8 @@
             
             // Create month row with merged cells
             const monthTr = document.createElement('tr');
-            // Add blank cells for first three columns
-            const blankMonth1 = document.createElement('th');
-            const blankMonth2 = document.createElement('th');
-            const blankMonth3 = document.createElement('th');
-            monthTr.appendChild(blankMonth1);
-            monthTr.appendChild(blankMonth2);
-            monthTr.appendChild(blankMonth3);
-            
-            // Track merged month cells
-            let i = 3;
-            while (i < monthRow.length) {
+            let i = 0;
+            while (i < Math.max(monthRow.length, headerRow.length)) {
                 const monthValue = monthRow[i] || '';
                 let colspan = 1;
                 
@@ -394,19 +369,11 @@
             }
             thead.appendChild(monthTr);
             
-            // Create date row
+            // Create header/date row
             const dateTr = document.createElement('tr');
-            // Add blank cells for first three columns
-            const blankDate1 = document.createElement('th');
-            const blankDate2 = document.createElement('th');
-            const blankDate3 = document.createElement('th');
-            dateTr.appendChild(blankDate1);
-            dateTr.appendChild(blankDate2);
-            dateTr.appendChild(blankDate3);
-            
-            for (let i = 3; i < dateRow.length; i++) {
+            for (let i = 0; i < headerRow.length; i++) {
                 const th = document.createElement('th');
-                th.textContent = dateRow[i] || '';
+                th.textContent = headerRow[i] || '';
                 dateTr.appendChild(th);
             }
             thead.appendChild(dateTr);
@@ -415,22 +382,21 @@
             dataRows.forEach(row => {
                 const tr = document.createElement('tr');
                 
-                // Check if this is a TOTAL row (look for "TOTAL" in first or second column)
-                const isTotal = (row[0] && row[0].toUpperCase().includes('TOTAL')) || 
-                               (row[1] && row[1].toUpperCase().includes('TOTAL'));
+                // Check if this is a TOTAL row
+                const isTotal = (row[1] && row[1].toUpperCase().includes('TOTAL'));
                 if (isTotal) {
                     tr.classList.add('total-row');
                 }
                 
-                for (let i = 0; i < Math.max(row.length, weekRow.length); i++) {
+                for (let i = 0; i < Math.max(row.length, headerRow.length); i++) {
                     const td = document.createElement('td');
                     let value = row[i] || '';
                     
-                    // Column 1 - text only
+                    // Column 0 - Number/blank
                     if (i === 0) {
                         td.textContent = value;
                     } 
-                    // Column 2 - text with wrapping after "/"
+                    // Column 1 - Alias (text with wrapping after "/")
                     else if (i === 1) {
                         if (value.includes('/')) {
                             value = value.replace('/', '/\n');
@@ -438,14 +404,13 @@
                         td.textContent = value;
                         td.style.whiteSpace = 'pre-line';
                     }
-                    // Column 3 - numbers with commas, no decimals, bold, left-aligned
+                    // Column 2 - Total Amount (numbers, right-aligned, bold)
                     else if (i === 2) {
                         if (isNumeric(value)) {
                             td.textContent = formatNumber(value);
                         } else {
                             td.textContent = value;
                         }
-                        // Keep left-aligned and bold (already styled in CSS)
                     }
                     // Other columns - check if numeric
                     else {
