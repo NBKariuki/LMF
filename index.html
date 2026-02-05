@@ -13,10 +13,23 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-            font-size: 11px;
-            line-height: 1.2;
+            font-size: 12px;
+            line-height: 1.3;
             overflow: hidden;
             background: #fff;
+        }
+        
+        #title {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #002351;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
         }
         
         #loading {
@@ -40,17 +53,18 @@
         table {
             border-collapse: collapse;
             width: max-content;
-            font-size: 10px;
+            font-size: 11px;
         }
         
         th, td {
-            padding: 4px 5px;
+            padding: 5px 4px;
             text-align: center;
             border: 0.5px solid #d0d0d0;
             white-space: nowrap;
+            font-size: 11px;
         }
         
-        /* First two columns - frozen and narrow */
+        /* First three columns - frozen and compact */
         th:nth-child(1),
         td:nth-child(1) {
             position: sticky;
@@ -58,28 +72,44 @@
             background: #fafafa;
             z-index: 5;
             text-align: left;
-            width: 8vw;
-            min-width: 8vw;
-            max-width: 8vw;
-            font-size: 10px;
-            padding: 3px 4px;
+            width: 5vw;
+            min-width: 5vw;
+            max-width: 5vw;
+            font-size: 11px;
+            padding: 5px 3px;
         }
         
         th:nth-child(2),
         td:nth-child(2) {
             position: sticky;
-            left: 8vw;
+            left: 5vw;
             background: #fafafa;
             z-index: 5;
             text-align: left;
-            width: 22vw;
-            min-width: 22vw;
-            max-width: 22vw;
-            font-size: 10px;
-            padding: 3px 4px;
+            width: 16vw;
+            min-width: 16vw;
+            max-width: 16vw;
+            font-size: 11px;
+            padding: 5px 4px;
             white-space: normal;
             word-wrap: break-word;
             line-height: 1.3;
+        }
+        
+        th:nth-child(3),
+        td:nth-child(3) {
+            position: sticky;
+            left: 21vw;
+            background: #fafafa;
+            z-index: 5;
+            text-align: left;
+            width: 9vw;
+            min-width: 9vw;
+            max-width: 9vw;
+            font-size: 11px;
+            padding: 5px 3px;
+            white-space: normal;
+            word-wrap: break-word;
         }
         
         /* Header rows sticky */
@@ -90,9 +120,10 @@
             z-index: 10;
         }
         
-        /* First two column headers higher z-index */
+        /* First three column headers higher z-index */
         thead tr th:nth-child(1),
-        thead tr th:nth-child(2) {
+        thead tr th:nth-child(2),
+        thead tr th:nth-child(3) {
             z-index: 15;
             background: #fafafa;
         }
@@ -100,35 +131,36 @@
         /* Row 1 - Week numbers */
         thead tr:nth-child(1) th {
             top: 0;
-            font-size: 9px;
-            padding: 4px 3px;
+            font-size: 10px;
+            padding: 5px 3px;
         }
         
         /* Row 2 - Months (merged cells) */
         thead tr:nth-child(2) th {
-            top: 22px;
-            font-size: 9px;
+            top: 26px;
+            font-size: 10px;
             font-weight: 600;
-            padding: 4px 3px;
+            padding: 5px 3px;
         }
         
         /* Row 3 - Dates with wrapping */
         thead tr:nth-child(3) th {
-            top: 44px;
+            top: 52px;
             white-space: normal;
             word-wrap: break-word;
-            font-size: 9px;
+            font-size: 10px;
             line-height: 1.2;
-            padding: 4px 2px;
-            height: 36px;
+            padding: 5px 2px;
+            height: 38px;
             vertical-align: middle;
             background: #00423e !important;
             color: white;
         }
         
-        /* Date row - first two columns also get the color */
+        /* Date row - first three columns also get the color */
         thead tr:nth-child(3) th:nth-child(1),
-        thead tr:nth-child(3) th:nth-child(2) {
+        thead tr:nth-child(3) th:nth-child(2),
+        thead tr:nth-child(3) th:nth-child(3) {
             background: #00423e !important;
         }
         
@@ -144,8 +176,10 @@
         /* Keep frozen columns background */
         tbody tr:nth-child(even) td:nth-child(1),
         tbody tr:nth-child(even) td:nth-child(2),
+        tbody tr:nth-child(even) td:nth-child(3),
         tbody tr:nth-child(odd) td:nth-child(1),
-        tbody tr:nth-child(odd) td:nth-child(2) {
+        tbody tr:nth-child(odd) td:nth-child(2),
+        tbody tr:nth-child(odd) td:nth-child(3) {
             background-color: #fafafa;
         }
         
@@ -160,16 +194,16 @@
             background: #002351 !important;
             color: white;
             font-weight: bold;
-            font-size: 11px;
+            font-size: 12px;
         }
         
         /* Compact data columns */
-        th:not(:nth-child(1)):not(:nth-child(2)),
-        td:not(:nth-child(1)):not(:nth-child(2)) {
+        th:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)),
+        td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
             min-width: 50px;
             max-width: 65px;
-            font-size: 10px;
-            padding: 4px 3px;
+            font-size: 11px;
+            padding: 5px 3px;
         }
         
         /* Loading spinner */
@@ -190,6 +224,7 @@
     </style>
 </head>
 <body>
+    <div id="title">Contribution/Deposit Tracker</div>
     <div id="loading">
         <div class="spinner"></div>
         <p>Loading data...</p>
@@ -275,13 +310,15 @@
             
             // Create week number row
             const weekTr = document.createElement('tr');
-            // Add blank cells for first two columns
+            // Add blank cells for first three columns
             const blankWeek1 = document.createElement('th');
             const blankWeek2 = document.createElement('th');
+            const blankWeek3 = document.createElement('th');
             weekTr.appendChild(blankWeek1);
             weekTr.appendChild(blankWeek2);
+            weekTr.appendChild(blankWeek3);
             
-            for (let i = 2; i < weekRow.length; i++) {
+            for (let i = 3; i < weekRow.length; i++) {
                 const th = document.createElement('th');
                 th.textContent = weekRow[i] || '';
                 weekTr.appendChild(th);
@@ -290,14 +327,16 @@
             
             // Create month row with merged cells
             const monthTr = document.createElement('tr');
-            // Add blank cells for first two columns
+            // Add blank cells for first three columns
             const blankMonth1 = document.createElement('th');
             const blankMonth2 = document.createElement('th');
+            const blankMonth3 = document.createElement('th');
             monthTr.appendChild(blankMonth1);
             monthTr.appendChild(blankMonth2);
+            monthTr.appendChild(blankMonth3);
             
             // Track merged month cells
-            let i = 2;
+            let i = 3;
             while (i < monthRow.length) {
                 const monthValue = monthRow[i] || '';
                 let colspan = 1;
@@ -320,13 +359,15 @@
             
             // Create date row
             const dateTr = document.createElement('tr');
-            // Add blank cells for first two columns
+            // Add blank cells for first three columns
             const blankDate1 = document.createElement('th');
             const blankDate2 = document.createElement('th');
+            const blankDate3 = document.createElement('th');
             dateTr.appendChild(blankDate1);
             dateTr.appendChild(blankDate2);
+            dateTr.appendChild(blankDate3);
             
-            for (let i = 2; i < dateRow.length; i++) {
+            for (let i = 3; i < dateRow.length; i++) {
                 const th = document.createElement('th');
                 th.textContent = dateRow[i] || '';
                 dateTr.appendChild(th);
@@ -348,14 +389,16 @@
                     const td = document.createElement('td');
                     let value = row[i] || '';
                     
-                    // First two columns are text (left-aligned)
-                    if (i < 2) {
-                        // Replace "/" with a line break for wrapping
-                        if (value.includes('/')) {
+                    // First three columns are text (left-aligned)
+                    if (i < 3) {
+                        // Replace "/" with a line break for wrapping in column 2
+                        if (i === 1 && value.includes('/')) {
                             value = value.replace('/', '/\n');
                         }
                         td.textContent = value;
-                        td.style.whiteSpace = 'pre-line';
+                        if (i === 1) {
+                            td.style.whiteSpace = 'pre-line';
+                        }
                     } else {
                         // Other columns - check if numeric
                         if (isNumeric(value)) {
