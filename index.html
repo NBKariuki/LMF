@@ -52,26 +52,31 @@
         
         /* First two columns - frozen and narrow */
         th:nth-child(1),
-        th:nth-child(2),
-        td:nth-child(1),
-        td:nth-child(2) {
+        td:nth-child(1) {
             position: sticky;
+            left: 0;
             background: #fafafa;
             z-index: 5;
             text-align: left;
-            max-width: 15vw;
+            width: 8vw;
+            min-width: 8vw;
+            max-width: 8vw;
             font-size: 9px;
             padding: 3px 4px;
         }
         
-        th:nth-child(1),
-        td:nth-child(1) {
-            left: 0;
-        }
-        
         th:nth-child(2),
         td:nth-child(2) {
-            left: 15vw;
+            position: sticky;
+            left: 8vw;
+            background: #fafafa;
+            z-index: 5;
+            text-align: left;
+            width: 22vw;
+            min-width: 22vw;
+            max-width: 22vw;
+            font-size: 9px;
+            padding: 3px 4px;
         }
         
         /* Header rows sticky */
