@@ -150,7 +150,7 @@
     <div id="tableContainer" class="table-container" style="display: none;"></div>
 
     <script>
-        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQfQdBVl01cxsIoGnfJLltGDuOkIVDFqj-rNg3KwFVZ8-GGbUqk1DSs_CVaygisjaLhg30g1gjzIsdC/pub?output=csv';
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQfQdBVl01cxsIoGnfJLltGDuOkIVDFqj-rNg3KwFVZ8-GGbUqk1DSs_CVaygisjaLhg30g1gjzIsdC/pub?gid=2079453016&single=true&output=csv';
         
         function parseCSV(text) {
             const lines = [];
@@ -212,8 +212,9 @@
                 throw new Error('No data found');
             }
             
-            const headers = data[0];
-            const rows = data.slice(1).filter(row => row.some(cell => cell && cell.trim()));
+            // Skip first 4 rows, then use row 5 as headers
+            const headers = data[4];
+            const rows = data.slice(5).filter(row => row.some(cell => cell && cell.trim()));
             
             if (headers.length < 3) {
                 throw new Error('Need at least 3 columns (2 frozen + 1 scrollable)');
