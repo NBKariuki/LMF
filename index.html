@@ -17,9 +17,8 @@
             font-size: 12px;
             line-height: 1.3;
             background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            height: 100vh;
+            min-height: 100vh;
             color: #fff;
-            overflow: hidden;
         }
         
         #loading {
@@ -42,10 +41,8 @@
             width: 100vw;
             height: 100vh;
             overflow-x: auto;
-            overflow-y: hidden;
+            overflow-y: auto;
             padding: 20px;
-            display: flex;
-            align-items: center;
         }
         
         table {
@@ -160,7 +157,7 @@
             padding: 6px 4px;
         }
         
-        /* Row 3 - Dates with wrapping - SOLID COLOR */
+        /* Row 3 - Dates with wrapping */
         thead tr:nth-child(3) th {
             top: 56px;
             white-space: normal;
@@ -223,16 +220,57 @@
         td:not(:nth-child(1)):not(:nth-child(2)):not(:nth-child(3)) {
             min-width: 50px;
             max-width: 65px;
+            font-size: 11px;
+            padding: 8px 6px;
+        }
+        
+        /* Loading spinner */
+        .spinner {
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top: 3px solid #84fab0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Scrollbar styling for dark theme */
+        .table-container::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        
+        .table-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+        
+        .table-container::-webkit-scrollbar-thumb {
+            background: rgba(132, 250, 176, 0.3);
+            border-radius: 5px;
+        }
+        
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(132, 250, 176, 0.5);
         }
     </style>
 </head>
 <body>
-    <div id="loading">Loading data...</div>
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Loading data...</p>
+    </div>
     <div id="error"></div>
-    <div class="table-container" id="tableContainer" style="display: none;"></div>
-    
+    <div id="tableContainer" class="table-container" style="display: none;"></div>
+
     <script>
-        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSiUQ6D-OV90q2xN5E5DfJYz06KY8VMYF6d_eMWxNxcYmVfzBq5fDFjgvvk8V1kd5LNV3GisCLkbJMb/pub?output=csv';
+        const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQfQdBVl01cxsIoGnfJLltGDuOkIVDFqj-rNg3KwFVZ8-GGbUqk1DSs_CVaygisjaLhg30g1gjzIsdC/pub?gid=2079453016&single=true&output=csv';
         
         function parseCSV(text) {
             const lines = [];
