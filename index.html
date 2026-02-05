@@ -377,18 +377,29 @@
                     const td = document.createElement('td');
                     let value = row[i] || '';
                     
-                    // First three columns are text (left-aligned)
-                    if (i < 3) {
-                        // Replace "/" with a line break for wrapping in column 2
-                        if (i === 1 && value.includes('/')) {
+                    // Column 1 - text only
+                    if (i === 0) {
+                        td.textContent = value;
+                    } 
+                    // Column 2 - text with wrapping after "/"
+                    else if (i === 1) {
+                        if (value.includes('/')) {
                             value = value.replace('/', '/\n');
                         }
                         td.textContent = value;
-                        if (i === 1) {
-                            td.style.whiteSpace = 'pre-line';
+                        td.style.whiteSpace = 'pre-line';
+                    }
+                    // Column 3 - numbers with commas, no decimals, bold, left-aligned
+                    else if (i === 2) {
+                        if (isNumeric(value)) {
+                            td.textContent = formatNumber(value);
+                        } else {
+                            td.textContent = value;
                         }
-                    } else {
-                        // Other columns - check if numeric
+                        // Keep left-aligned and bold (already styled in CSS)
+                    }
+                    // Other columns - check if numeric
+                    else {
                         if (isNumeric(value)) {
                             td.textContent = formatNumber(value);
                             td.classList.add('number');
