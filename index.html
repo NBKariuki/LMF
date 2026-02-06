@@ -16,7 +16,6 @@
             font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             font-size: 12px;
             line-height: 1.3;
-            overflow: hidden;
             background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
             min-height: 100vh;
             color: #fff;
@@ -167,16 +166,16 @@
             padding: 6px 4px;
             height: 40px;
             vertical-align: middle;
-            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
+            background: #84fab0 !important;
             color: #0f0c29 !important;
             font-weight: 700;
         }
         
-        /* Date row - first three columns also get the gradient */
+        /* Date row - first three columns also get the solid color */
         thead tr:nth-child(3) th:nth-child(1),
         thead tr:nth-child(3) th:nth-child(2),
         thead tr:nth-child(3) th:nth-child(3) {
-            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
+            background: #84fab0 !important;
             color: #0f0c29 !important;
         }
         
@@ -209,7 +208,7 @@
         
         /* TOTAL row styling */
         tbody tr.total-row td {
-            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%) !important;
+            background: #84fab0 !important;
             color: #0f0c29 !important;
             font-weight: bold;
             font-size: 12px;
