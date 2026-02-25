@@ -140,54 +140,55 @@ button,select,input{touch-action:manipulation;font-family:inherit;}
 .greet-line{font-size:var(--t-subhead);font-weight:500;line-height:1.4;color:var(--t1);letter-spacing:.01em;}
 
 
-.tabs{padding:0 16px;margin-top:16px;display:flex;gap:0;border-bottom:2px solid var(--br2);position:sticky;top:0;z-index:50;background:var(--bg);align-items:flex-end;}
-.tab{flex:1;text-align:center;padding:10px 8px 11px;background:var(--ibg);border:1px solid var(--br2);border-bottom:none;border-radius:10px 10px 0 0;color:var(--t3);font-size:var(--t-footnote);font-weight:700;cursor:pointer;position:relative;white-space:nowrap;transition:all .2s;margin-right:2px;top:2px;}
-.tab.on{color:#fff;border-color:rgba(255,255,255,.18);border-bottom:2px solid transparent;margin-bottom:-2px;background:#1e2232;}.tab-ov.on{background:#1a2420;border-color:rgba(0,229,160,.4);color:#00e5a0;}.tab-bl.on{background:#1a2232;border-color:rgba(91,163,245,.4);color:#5ba3f5;}.tab-mo.on{background:#1e1a2e;border-color:rgba(139,92,246,.4);color:#a78bfa;}
+/* ── Pill Nav ── */
+.nav-wrap{padding:14px 16px 0;position:sticky;top:0;z-index:50;background:var(--bg);}
+.nav-track{display:flex;gap:4px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:4px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);}
+.tab{flex:1;text-align:center;padding:9px 6px;border-radius:50px;color:var(--t3);font-size:var(--t-footnote);font-weight:700;cursor:pointer;white-space:nowrap;transition:all .22s;border:none;background:transparent;letter-spacing:.01em;}
+.tab-ov.on{background:#00c87a;color:#001a0e;box-shadow:0 2px 12px rgba(0,200,122,.35);}
+.tab-bl.on{background:#3b82f6;color:#fff;box-shadow:0 2px 12px rgba(59,130,246,.35);}
+.tab-mo.on{background:#8b5cf6;color:#fff;box-shadow:0 2px 12px rgba(139,92,246,.35);}
 
 
 .panel{display:none;padding-bottom:80px;}
 .panel.on{display:block;animation:up .3s ease;}
 
-.hero{padding:28px 20px 10px;}
+.hero{padding:28px 20px 10px;text-align:center;}
 .hero-lbl{font-size:var(--t-caption1);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:8px;}
 .hero-num{font-family:'Sora',sans-serif;font-size:var(--t-largetitle);font-weight:800;line-height:1;letter-spacing:-.04em;color:var(--t1);}
-.hero-sub{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:var(--t-footnote);color:var(--t3);}
+.hero-sub{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;font-size:var(--t-footnote);color:var(--t3);}
 .hero-pill{background:rgba(0,200,122,.12);color:#00e5a0;padding:4px 12px;border-radius:20px;font-size:var(--t-caption1);font-weight:700;border:1px solid rgba(0,229,160,.25);letter-spacing:.02em;}
 
-.blobzone{position:relative;margin-top:4px;padding-bottom:24px;overflow:visible;}
-/* subtle single green ambient glow — background texture only */
-.blobzone::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;filter:blur(60px);background:rgba(0,200,122,.07);bottom:0;right:-40px;pointer-events:none;z-index:0;}
-.blob3{display:none;}
-.scards{position:relative;z-index:1;margin-left:20px;padding-top:152px;}
-/* Base card — dark, recessive */
-.sc{position:absolute;right:0;border-radius:20px 0 0 20px;padding:20px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:transform .15s, border-color .2s;}
-.sc:active{transform:scale(.97);}
-/* Card 1 — dark navy, barely there */
-.sc1{background:#12151f;border:1px solid rgba(255,255,255,.09);width:76%;top:0;z-index:1;box-shadow:0 4px 20px rgba(0,0,0,.35);}
-.sc1:hover{border-color:rgba(255,255,255,.18);}
-/* Card 2 — slightly lighter dark, green accent border */
-.sc2{background:#141a18;border:1px solid rgba(0,200,122,.18);width:88%;top:76px;z-index:2;box-shadow:0 4px 20px rgba(0,0,0,.35);}
-.sc2:hover{border-color:rgba(0,200,122,.35);}
-/* Card 3 — darkest, group balance numbers are the colour */
-.sc3{background:#0f1410;border:1px solid rgba(0,200,122,.12);width:100%;position:relative;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:0;cursor:default;padding:20px 18px 26px;box-shadow:0 4px 20px rgba(0,0,0,.4);}
-/* Icon — small accent glyph only, no coloured bg */
-.sc-ico{width:38px;height:38px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);display:flex;align-items:center;justify-content:center;font-size:var(--t-headline);flex-shrink:0;}
-.sc2 .sc-ico{background:rgba(0,200,122,.07);border-color:rgba(0,200,122,.2);}
-.sc3 .sc-ico{background:rgba(0,200,122,.07);border-color:rgba(0,200,122,.2);}
-/* Labels — muted, supporting role */
-.sc-lbl{font-family:'Sora',sans-serif;font-size:var(--t-subhead);font-weight:600;color:rgba(238,240,248,.55);flex:1;line-height:1.3;}
-.sc-arr{color:rgba(238,240,248,.25);font-size:var(--t-footnote);}
-.sc2 .sc-lbl{color:rgba(238,240,248,.65);}
-.sc3 .sc-lbl{color:rgba(238,240,248,.55);}
+/* ── Quick-action glass cards (side by side) ── */
+.qarow{display:flex;gap:10px;padding:14px 16px 0;}
+.qac{flex:1;border-radius:18px;padding:16px 14px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:transform .15s,opacity .15s;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:0 2px 16px rgba(0,0,0,.2);}
+.qac:active{transform:scale(.96);opacity:.85;}
+.qac-ico{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:var(--t-headline);}
+.qac-lbl{font-family:'Sora',sans-serif;font-size:var(--t-footnote);font-weight:700;color:rgba(238,240,248,.8);line-height:1.3;}
+.qac-arr{font-size:var(--t-caption1);color:rgba(238,240,248,.3);align-self:flex-end;}
+/* subtle tint per card */
+.qac1{border-color:rgba(91,163,246,.2);}
+.qac1 .qac-ico{background:rgba(59,130,246,.1);border-color:rgba(91,163,246,.2);}
+.qac2{border-color:rgba(0,200,122,.2);}
+.qac2 .qac-ico{background:rgba(0,200,122,.1);border-color:rgba(0,200,122,.2);}
 
-.sc3-head{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
-.c3nums{width:100%;margin-top:0;}
-.c3row{display:flex;align-items:baseline;gap:10px;margin-bottom:12px;}
-.c3row:last-child{margin-bottom:0;}
-/* Numbers — these are NOW the bright elements */
-.c3n{font-family:'Sora',sans-serif;font-size:var(--t-title2);font-weight:800;color:rgba(238,240,248,.75);line-height:1;letter-spacing:-.02em;}
-.c3n.big{font-size:var(--t-title1);color:#00e5a0;letter-spacing:-.03em;text-shadow:0 0 28px rgba(0,229,160,.3);}
-.c3l{font-size:var(--t-caption2);font-weight:600;color:rgba(238,240,248,.3);text-transform:uppercase;letter-spacing:.06em;line-height:1.4;}
+/* ── Group Performance card ── */
+.perf-card{margin:14px 16px 0;border-radius:22px;padding:20px 18px 24px;
+  background:#0f1410;border:1px solid rgba(0,200,122,.14);
+  box-shadow:0 4px 24px rgba(0,0,0,.4);}
+.perf-head{display:flex;align-items:center;gap:12px;margin-bottom:18px;}
+.perf-ico{width:36px;height:36px;border-radius:10px;background:rgba(0,200,122,.09);border:1px solid rgba(0,200,122,.2);display:flex;align-items:center;justify-content:center;font-size:var(--t-headline);}
+.perf-title{font-family:'Sora',sans-serif;font-size:var(--t-subhead);font-weight:700;color:rgba(238,240,248,.6);}
+.perf-nums{display:flex;flex-direction:column;gap:14px;}
+.perf-row{display:flex;flex-direction:column;align-items:center;gap:2px;}
+.perf-n{font-family:'Sora',sans-serif;font-weight:800;line-height:1;letter-spacing:-.02em;text-align:center;}
+.perf-n.int{font-size:var(--t-title2);color:rgba(238,240,248,.75);}
+.perf-n.bal{font-size:var(--t-title1);color:#00e5a0;letter-spacing:-.03em;text-shadow:0 0 28px rgba(0,229,160,.3);}
+.perf-lbl{font-size:var(--t-caption2);font-weight:600;color:rgba(238,240,248,.28);text-transform:uppercase;letter-spacing:.08em;text-align:center;}
+.perf-div{height:1px;background:rgba(255,255,255,.06);margin:0 4px;}
 
 .inner{padding:0 20px;animation:up .25s ease;}
 .back-btn{display:flex;align-items:center;gap:8px;padding:14px 0 10px;color:var(--t2);font-size:var(--t-subhead);font-weight:600;cursor:pointer;background:transparent;border:none;}
@@ -867,14 +868,16 @@ function App() {
         <div className="greet-line">{greetLine()}</div>
       </div>
 
-      {/* TABS */}
-      <div className="tabs">
-        {[['overview','Overview','tab-ov'],['balance','My Balance','tab-bl'],['more','More+','tab-mo']].map(([id,lbl,cls]) => (
-          <button key={id} className={`tab ${cls}${tab===id?' on':''}`}
-            onClick={() => { setTab(id); setAllView(false); }}>
-            {lbl}
-          </button>
-        ))}
+      {/* PILL NAV */}
+      <div className="nav-wrap">
+        <div className="nav-track">
+          {[['overview','Overview','tab-ov'],['balance','My Balance','tab-bl'],['more','More+','tab-mo']].map(([id,lbl,cls]) => (
+            <button key={id} className={`tab ${cls}${tab===id?' on':''}`}
+              onClick={() => { setTab(id); setAllView(false); }}>
+              {lbl}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* ══ OVERVIEW ══ */}
@@ -884,41 +887,42 @@ function App() {
           : <>
               <div className="hero">
                 <div className="hero-lbl">Group Contributions to Date &middot; Jan &ndash; {month}</div>
-                <div className="hero-num">{st ? f0(st.cumC) : '—'}</div>
+                <div className="hero-num">{st ? f2(st.cumC) : '—'}</div>
                 <div className="hero-sub">
                   <span style={{color:'var(--t3)'}}>This month:</span>
-                  <span className="hero-pill">&#8593; KES {st ? f0(st.mTopups) : '0'}</span>
+                  <span className="hero-pill">&#8593; KES {st ? f2(st.mTopups) : '0.00'}</span>
                 </div>
               </div>
 
-              <div className="blobzone">
-                <div className="blob3"/>
-                <div className="scards">
-                  <div className="sc sc1" onClick={openContrib}>
-                    <div className="sc-ico">&#128200;</div>
-                    <div className="sc-lbl">View Group Contributions</div>
-                    <div className="sc-arr">&#8599;</div>
+              {/* Quick-action glass cards — side by side */}
+              <div className="qarow">
+                <div className="qac qac1" onClick={openContrib}>
+                  <div className="qac-ico">&#128200;</div>
+                  <div className="qac-lbl">View Group Contributions</div>
+                  <div className="qac-arr">&#8599;</div>
+                </div>
+                <div className="qac qac2" onClick={() => setAllView(true)}>
+                  <div className="qac-ico">&#128176;</div>
+                  <div className="qac-lbl">View Group Saving &amp; Interest</div>
+                  <div className="qac-arr">&#8594;</div>
+                </div>
+              </div>
+
+              {/* Group Performance card */}
+              <div className="perf-card">
+                <div className="perf-head">
+                  <div className="perf-ico">&#9878;</div>
+                  <div className="perf-title">Group Performance</div>
+                </div>
+                <div className="perf-nums">
+                  <div className="perf-row">
+                    <div className="perf-n int">{st ? f2(st.cumI) : '—'}</div>
+                    <div className="perf-lbl">Interest Earned</div>
                   </div>
-                  <div className="sc sc2" onClick={() => setAllView(true)}>
-                    <div className="sc-ico">&#128176;</div>
-                    <div className="sc-lbl">View Group Saving &amp; Interest</div>
-                    <div className="sc-arr">&#8594;</div>
-                  </div>
-                  <div className="sc sc3">
-                    <div className="sc3-head">
-                      <div className="sc-ico" style={{background:'rgba(0,200,122,.22)'}}>&#9878;</div>
-                      <div className="sc-lbl">Group Balance</div>
-                    </div>
-                    <div className="c3nums">
-                      <div className="c3row">
-                        <div className="c3n">{st ? f2(st.cumI) : '—'}</div>
-                        <div className="c3l">Interest Earned</div>
-                      </div>
-                      <div className="c3row">
-                        <div className="c3n big">{st ? f2(st.totBal) : '—'}</div>
-                        <div className="c3l">Total Group Balance</div>
-                      </div>
-                    </div>
+                  <div className="perf-div"/>
+                  <div className="perf-row">
+                    <div className="perf-n bal">{st ? f2(st.totBal) : '—'}</div>
+                    <div className="perf-lbl">Total Group Balance</div>
                   </div>
                 </div>
               </div>
